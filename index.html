@@ -227,7 +227,38 @@
     .footer-col-title{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.3rem}
     .footer-col a{font-size:.82rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
     .footer-col a:hover{color:#fff}
-    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;padding:1.4rem 0;font-size:.72rem;color:rgba(255,255,255,.3)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;padding:1.4rem 0;font-size:.72rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.08);margin-top:0}
+
+    /* BLOG */
+    #blog{background:var(--purple-bg)}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .blog-card{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:pointer;text-decoration:none;display:block;color:inherit}
+    .blog-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(92,39,254,0.12)}
+    .blog-card-top{padding:1.8rem 1.8rem 1rem}
+    .blog-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--purple-pale);color:var(--purple);padding:.25rem .8rem;border-radius:50px;margin-bottom:1rem}
+    .blog-title{font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.45;margin-bottom:.7rem}
+    .blog-excerpt{font-size:.82rem;color:var(--muted);line-height:1.8}
+    .blog-card-bottom{padding:.9rem 1.8rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);margin-top:1rem}
+    .blog-date{font-size:.72rem;color:var(--muted2);font-weight:500}
+    .blog-read{font-size:.72rem;font-weight:600;color:var(--purple);display:flex;align-items:center;gap:.3rem}
+    .blog-read svg{width:13px;height:13px;stroke:var(--purple);fill:none;stroke-width:2.5;transition:transform .2s}
+    .blog-card:hover .blog-read svg{transform:translateX(3px)}
+    /* BLOG MODAL */
+    .blog-modal-overlay{position:fixed;inset:0;background:rgba(10,10,20,0.7);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(6px)}
+    .blog-modal-overlay.open{opacity:1;pointer-events:all}
+    .blog-modal{background:var(--white);border-radius:24px;max-width:720px;width:100%;margin:auto;padding:3rem 3.5rem;position:relative;transform:translateY(30px);transition:transform .3s;box-shadow:0 32px 80px rgba(0,0,0,0.18)}
+    .blog-modal-overlay.open .blog-modal{transform:none}
+    .blog-modal-close{position:absolute;top:1.4rem;right:1.4rem;width:36px;height:36px;border-radius:50%;background:var(--border);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--muted);transition:background .2s}
+    .blog-modal-close:hover{background:var(--purple-pale);color:var(--purple)}
+    .blog-modal-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--purple-pale);color:var(--purple);padding:.25rem .8rem;border-radius:50px;margin-bottom:1rem}
+    .blog-modal h1{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--text);line-height:1.3;margin-bottom:.6rem;letter-spacing:-.02em}
+    .blog-modal-meta{font-size:.75rem;color:var(--muted2);margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+    .blog-modal-body{font-size:.92rem;color:#374151;line-height:1.95}
+    .blog-modal-body p{margin-bottom:1.3rem}
+    .blog-modal-body h2{font-size:1.05rem;font-weight:700;color:var(--text);margin:2rem 0 .7rem;padding-top:.5rem}
+    .blog-modal-body h3{font-size:.92rem;font-weight:700;color:var(--purple);margin:1.4rem 0 .5rem}
+    .blog-modal-body blockquote{border-left:3px solid var(--purple);padding:.6rem 1.2rem;margin:1.2rem 0;background:var(--purple-bg);border-radius:0 8px 8px 0;font-style:italic;color:var(--muted)}
+    @media(max-width:600px){.blog-modal{padding:2rem 1.5rem}.blog-modal-overlay{padding:1rem .5rem}}
   </style>
 </head>
 <body>
@@ -244,6 +275,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#casestudy">Case Study</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact" class="nav-hire">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       Hire Me
@@ -259,6 +291,7 @@
   <a href="#experience">Experience</a>
   <a href="#casestudy">Case Study</a>
   <a href="#skills">Skills</a>
+  <a href="#blog">Blog</a>
   <a href="#contact">Contact</a>
 </div>
 
@@ -544,7 +577,7 @@
     <div class="case-header">
       <div class="case-header-top">
         <div>
-          <div class="case-title">Automation Framework Initiative</div>
+          <div class="case-title">Automation Framework Initiative &mdash; Funsol Technologies</div>
           <div class="case-sub">Scope: 5+ Android apps &nbsp;·&nbsp; Team: 3 engineers &nbsp;·&nbsp; Duration: 2 sprints</div>
         </div>
       </div>
@@ -685,6 +718,57 @@
   </div>
 </section>
 
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-label reveal">Thoughts</div>
+  <h2 class="section-title reveal">Blog</h2>
+  <p class="section-sub reveal">Things I've learned the hard way — about projects, quality, and delivery.</p>
+  <div class="blog-grid">
+    <div class="blog-card reveal" onclick="openBlog('b1')">
+      <div class="blog-card-top">
+        <div class="blog-tag">Project Management</div>
+        <div class="blog-title">What 2 years of QA taught me about project risks</div>
+        <div class="blog-excerpt">I didn't learn risk management from a textbook. I learned it from watching software break in ways nobody planned for — and then being the person who had to explain why.</div>
+      </div>
+      <div class="blog-card-bottom">
+        <span class="blog-date">March 2025 &nbsp;·&nbsp; 6 min read</span>
+        <span class="blog-read">Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </div>
+    <div class="blog-card reveal" style="opacity:.45;pointer-events:none">
+      <div class="blog-card-top">
+        <div class="blog-tag">Agile</div>
+        <div class="blog-title">Why sprint planning fails — and what to do about it</div>
+        <div class="blog-excerpt">Coming soon.</div>
+      </div>
+      <div class="blog-card-bottom">
+        <span class="blog-date">Coming soon</span>
+        <span class="blog-read">Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </div>
+    <div class="blog-card reveal" style="opacity:.45;pointer-events:none">
+      <div class="blog-card-top">
+        <div class="blog-tag">Lessons Learned</div>
+        <div class="blog-title">The GDSC events that taught me more about PM than any course</div>
+        <div class="blog-excerpt">Coming soon.</div>
+      </div>
+      <div class="blog-card-bottom">
+        <span class="blog-date">Coming soon</span>
+        <span class="blog-read">Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG MODAL -->
+<div class="blog-modal-overlay" id="blogOverlay" onclick="closeBlogIfOutside(event)">
+  <div class="blog-modal" id="blogModal">
+    <button class="blog-modal-close" onclick="closeBlog()">&#x2715;</button>
+    <div id="blogContent"></div>
+  </div>
+</div>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-label">Let's Connect</div>
@@ -735,6 +819,7 @@
         <a href="#experience">Experience</a>
         <a href="#casestudy">Case Study</a>
         <a href="#skills">Skills</a>
+        <a href="#blog">Blog</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Connect</div>
@@ -825,6 +910,55 @@
   document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
   /* Orbit removed — tool icons now static floating */
+
+
+  /* BLOG */
+  const blogs = {
+    b1: `
+      <div class="blog-modal-tag">Project Management</div>
+      <h1>What 2 years of QA taught me about project risks</h1>
+      <div class="blog-modal-meta">Mohsin Ali &nbsp;&middot;&nbsp; March 2025 &nbsp;&middot;&nbsp; 6 min read</div>
+      <div class="blog-modal-body">
+        <p>I didn't learn risk management from a textbook. I learned it from watching software break in ways nobody planned for &mdash; and then being the person who had to explain why.</p>
+        <p>For two years, my job was to find problems before users did. Every build, every release, every sprint &mdash; I was looking for what could go wrong. At the time I thought that was just testing. Looking back, it was risk management. I just didn't have the vocabulary for it yet.</p>
+        <h2>The thing about risks is that they're obvious in hindsight</h2>
+        <p>There's a specific type of pain that comes from finding a critical bug on release day. Not because the bug was hard to find &mdash; it usually wasn't. But because if anyone had asked "what could break here?" three weeks earlier, someone would have said exactly this. The information existed. Nobody organized it.</p>
+        <p>That's what a risk register actually is. Not a formality. Not a box to tick before a project kicks off. It's a forcing function that makes you ask the uncomfortable questions while you still have time to do something about them.</p>
+        <p>I started keeping informal risk logs in QA &mdash; things like "this feature has three external API dependencies, if any one of them changes we lose the whole flow." I wasn't calling it risk management. I was just trying to stay sane. But when I started learning PM properly, I realized that's exactly what risk registers are for.</p>
+        <h2>Three things QA teaches you that PM school doesn't</h2>
+        <h3>1. The difference between likelihood and impact</h3>
+        <p>Early in my QA career I reported every bug with the same urgency. Then a senior developer pulled me aside and said something I still think about: "not every bug is a fire." He was right. A crash that happens 1 in 1000 sessions on a niche screen is not the same as a login bug that affects every new user. Same logic applies to project risks. A risk with high impact but low likelihood needs a contingency plan, not a mitigation plan. You handle those differently.</p>
+        <p>Most PM courses tell you this in a 2x2 matrix and move on. QA actually makes you live it. When you're triaging 40 bugs with a release in two days, you develop a fast, instinctive sense of what actually matters.</p>
+        <h3>2. Risks don't announce themselves</h3>
+        <p>In testing, the most dangerous bugs are the ones that don't look like bugs. An animation that's slightly off. A loading state that takes a half-second longer than it should. These are easy to miss because nothing technically broke. But users notice. And sometimes "users notice" becomes "1-star reviews" faster than anyone expects.</p>
+        <p>Project risks are similar. The dependency that's going to delay you by two weeks doesn't look like a problem until week six. The stakeholder who's going to change direction doesn't signal it in the kickoff meeting. You have to go looking. You have to ask "what are we assuming is fine that might not be fine?"</p>
+        <p>After two years of asking that question about software, asking it about projects felt natural.</p>
+        <h3>3. Documentation is risk mitigation</h3>
+        <p>I used to think test documentation was bureaucracy. Then we had a team member leave mid-project and the replacement spent a week just figuring out what had already been tested. That week cost us the release date.</p>
+        <p>After that I started documenting everything. Not because I was told to &mdash; because I'd seen what happens when you don't. A well-written test case is a risk mitigation. A clear defect report with reproduction steps is a risk mitigation. A sprint retrospective that actually captures what went wrong is a risk mitigation.</p>
+        <p>The PM equivalent is the same thing at a higher level. Project charter, risk register, RACI matrix &mdash; these aren't paperwork. They're insurance policies.</p>
+        <h2>What I do differently now</h2>
+        <p>When I approach a project now, the first question I ask isn't "what are we building?" It's "what could stop us from delivering this?" Sometimes the answer is technical. Sometimes it's a dependency on another team. Sometimes it's an assumption everyone's made without saying out loud.</p>
+        <p>I open a risk register on day one. Not because a process says I should &mdash; because I've spent two years seeing what the alternative looks like.</p>
+        <blockquote>The best time to find a risk is before it becomes a problem. The second best time is the moment it becomes one. Never let it be after.</blockquote>
+        <p>QA didn't teach me to be cautious. It taught me to be precise. There's a difference. Caution is worrying about everything. Precision is knowing exactly what to worry about, and doing something about it before anyone else realizes there's a problem.</p>
+        <p>That's what I'm bringing into project management. Not fear of failure &mdash; a structured, practiced habit of looking for it before it finds you.</p>
+      </div>
+    `
+  };
+  function openBlog(id) {
+    document.getElementById('blogContent').innerHTML = blogs[id] || '';
+    document.getElementById('blogOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeBlog() {
+    document.getElementById('blogOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeBlogIfOutside(e) {
+    if(e.target === document.getElementById('blogOverlay')) closeBlog();
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeBlog(); });
 
 </script>
 </body>
