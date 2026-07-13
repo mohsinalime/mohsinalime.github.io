@@ -216,18 +216,25 @@
 
     /* FOOTER */
     .site-footer{background:#0F0F1A;color:rgba(255,255,255,.7);padding:4rem 6% 0}
-    .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
-    .footer-brand{display:flex;align-items:center;gap:1rem;max-width:280px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+    .footer-brand{display:flex;align-items:center;gap:1rem;max-width:300px;flex-shrink:0}
     .footer-logo{width:64px;height:34px;background:transparent;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
     .footer-logo svg{width:100%;height:100%;display:block}
-    .footer-name{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+    .footer-name{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.25rem}
     .footer-role{font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.5}
-    .footer-links{display:flex;gap:4rem;flex-wrap:wrap}
-    .footer-col{display:flex;flex-direction:column;gap:.6rem}
-    .footer-col-title{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.3rem}
+    .footer-links{display:flex;gap:5rem}
+    .footer-col{display:flex;flex-direction:column;gap:.65rem}
+    .footer-col-title{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.4rem}
     .footer-col a{font-size:.82rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
     .footer-col a:hover{color:#fff}
-    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;padding:1.4rem 0;font-size:.72rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.08);margin-top:0}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0 2rem;font-size:.72rem;color:rgba(255,255,255,.28)}
+    .footer-bottom span:last-child{text-align:right}
+    @media(max-width:768px){
+      .footer-inner{flex-direction:column;gap:2rem}
+      .footer-links{gap:3rem}
+      .footer-bottom{flex-direction:column;align-items:flex-start;gap:.4rem}
+      .footer-bottom span:last-child{text-align:left}
+    }
 
     /* BLOG */
     #blog{background:var(--purple-bg)}
@@ -736,25 +743,25 @@
         <span class="blog-read">Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </div>
-    <div class="blog-card reveal" style="opacity:.45;pointer-events:none">
+    <div class="blog-card reveal" onclick="openBlog('b2')">
       <div class="blog-card-top">
         <div class="blog-tag">Agile</div>
         <div class="blog-title">Why sprint planning fails — and what to do about it</div>
-        <div class="blog-excerpt">Coming soon.</div>
+        <div class="blog-excerpt">Every team I've worked with does sprint planning. Almost none of them do it well. It usually isn't the process that's broken — it's three specific habits that quietly kill it every time.</div>
       </div>
       <div class="blog-card-bottom">
-        <span class="blog-date">Coming soon</span>
+        <span class="blog-date">June 2026 &nbsp;·&nbsp; 5 min read</span>
         <span class="blog-read">Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </div>
-    <div class="blog-card reveal" style="opacity:.45;pointer-events:none">
+    <div class="blog-card reveal" onclick="openBlog('b3')">
       <div class="blog-card-top">
         <div class="blog-tag">Lessons Learned</div>
         <div class="blog-title">The GDSC events that taught me more about PM than any course</div>
-        <div class="blog-excerpt">Coming soon.</div>
+        <div class="blog-excerpt">I managed 5 technical events, 500 plus attendees, 15 volunteers. Nobody called it project management at the time. But every mistake I made there shows up in the textbooks — I just made them first.</div>
       </div>
       <div class="blog-card-bottom">
-        <span class="blog-date">Coming soon</span>
+        <span class="blog-date">June 2026 &nbsp;·&nbsp; 5 min read</span>
         <span class="blog-read">Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </div>
@@ -917,7 +924,7 @@
     b1: `
       <div class="blog-modal-tag">Project Management</div>
       <h1>What 2 years of QA taught me about project risks</h1>
-      <div class="blog-modal-meta">Mohsin Ali &nbsp;&middot;&nbsp; March 2025 &nbsp;&middot;&nbsp; 6 min read</div>
+      <div class="blog-modal-meta">Mohsin Ali &nbsp;&middot;&nbsp; June 2025 &nbsp;&middot;&nbsp; 6 min read</div>
       <div class="blog-modal-body">
         <p>I didn't learn risk management from a textbook. I learned it from watching software break in ways nobody planned for &mdash; and then being the person who had to explain why.</p>
         <p>For two years, my job was to find problems before users did. Every build, every release, every sprint &mdash; I was looking for what could go wrong. At the time I thought that was just testing. Looking back, it was risk management. I just didn't have the vocabulary for it yet.</p>
@@ -943,6 +950,66 @@
         <blockquote>The best time to find a risk is before it becomes a problem. The second best time is the moment it becomes one. Never let it be after.</blockquote>
         <p>QA didn't teach me to be cautious. It taught me to be precise. There's a difference. Caution is worrying about everything. Precision is knowing exactly what to worry about, and doing something about it before anyone else realizes there's a problem.</p>
         <p>That's what I'm bringing into project management. Not fear of failure &mdash; a structured, practiced habit of looking for it before it finds you.</p>
+      </div>
+    `
+,
+    b2: `
+      <div class="blog-modal-tag">Agile</div>
+      <h1>Why sprint planning fails &mdash; and what to do about it</h1>
+      <div class="blog-modal-meta">Mohsin Ali &nbsp;&middot;&nbsp; July 2026 &nbsp;&middot;&nbsp; 5 min read</div>
+      <div class="blog-modal-body">
+        <p>Every team I've worked with does sprint planning. Almost none of them do it well. And the strange thing is, it usually isn't the process that's broken. Scrum is simple enough. The ceremonies make sense. It's three specific habits that quietly kill sprint planning every time &mdash; and they're so common that most teams don't even notice them anymore.</p>
+
+        <h2>Habit 1: Planning the sprint without knowing the team's actual capacity</h2>
+        <p>This one is everywhere. The team pulls 30 story points into a sprint because that's what they did last sprint. Or because the backlog says those items are high priority. Nobody stops to ask: who's actually available this week?</p>
+        <p>In one of my sprints at Funsol, we planned at full capacity and found out on day two that one engineer was out for three days and another was split with a client project. We knew both of these things before the sprint started. We just didn't factor them in. We delivered 60% of what we committed to and spent the retrospective blaming "unexpected blockers" when the real blocker was us not doing the math at the start.</p>
+        <p>Now the first thing I do in any sprint planning session is write the team's actual available hours on a whiteboard before a single task is discussed. It changes the whole conversation.</p>
+
+        <h2>Habit 2: Skipping the "why" on each task</h2>
+        <p>Most sprint backlogs are full of tasks that say what to build but not why it matters this sprint. "Add search filter to dashboard." Okay. Why now? Is there a release dependency? A stakeholder demo? A user complaint that's been sitting for two months?</p>
+        <p>When the team doesn't know why something is in the sprint, they can't make good decisions when things get tight. And things always get tight. If you have to cut something on day eight, you want your team choosing based on actual priority &mdash; not just doing the tasks that feel most finished.</p>
+        <p>One sentence per task. That's all it takes. "This needs to be done before the App Store submission on the 20th." Suddenly everyone knows what can slip and what can't.</p>
+
+        <h2>Habit 3: Treating the sprint plan as final</h2>
+        <p>Sprint planning is not a contract. It's a forecast. The teams that struggle most with Agile are the ones that treat the sprint board like a legal document &mdash; either rigidly protecting every item or blaming "changing requirements" when reality doesn't match the plan.</p>
+        <p>Reality always changes. A dependency you didn't know about surfaces. A bug from production needs an immediate fix. A stakeholder moves a deadline. The plan isn't wrong because these things happened. The plan was right on the day you made it with the information you had.</p>
+        <p>What matters is how fast you adapt. Daily standups exist so you catch these things on day two, not day nine. The teams that do this well don't have fewer surprises &mdash; they just surface them faster.</p>
+
+        <h2>The one thing that actually fixes all three</h2>
+        <p>Honest conversation before the sprint starts. Not optimistic conversation. Not the "we can do it" energy that feels good in the planning meeting but falls apart by Wednesday. Actual honest assessment of capacity, priority, and assumptions.</p>
+        <p>Sprint planning fails when it becomes a performance. It works when it becomes a real conversation about what the team can actually deliver and why those specific things matter right now.</p>
+        <p>That's it. No framework change needed. Just honesty before commitment.</p>
+      </div>
+    `,
+    b3: `
+      <div class="blog-modal-tag">Lessons Learned</div>
+      <h1>The GDSC events that taught me more about PM than any course</h1>
+      <div class="blog-modal-meta">Mohsin Ali &nbsp;&middot;&nbsp; July 2026 &nbsp;&middot;&nbsp; 5 min read</div>
+      <div class="blog-modal-body">
+        <p>Between December 2023 and June 2024 I managed five technical events for Google Developer Student Club Islamabad. 500 plus attendees across the series. 15 volunteers who had other things to do. External speakers across different time zones. No dedicated budget system. No formal PM training yet.</p>
+        <p>I made every mistake in the book. I also learned more about project management in those six months than I did in any course I took before or after.</p>
+
+        <h2>The speaker who cancelled 18 hours before</h2>
+        <p>Our third event. Everything was set. Venue confirmed, 200 registrations, the WhatsApp group was active. Then at 10pm the night before, the speaker messaged to say a family emergency meant he couldn't make it.</p>
+        <p>I didn't have a backup. I hadn't even thought about having a backup. Why would I? He'd confirmed twice.</p>
+        <p>We scrambled. I spent two hours calling people I knew who could present on a related topic. We found someone, the event ran, most attendees didn't know anything had changed. But I did. And after that I had a backup speaker confirmed for every single event. Not because I thought something would go wrong again &mdash; because I now knew something always could.</p>
+        <p>Every risk register I make now has a "what's the contingency if this person isn't available" row. That lesson cost me one terrible night's sleep.</p>
+
+        <h2>The volunteer who didn't show up</h2>
+        <p>Event four. Registration desk, 9am. One of my three registration volunteers didn't come. No message, no warning. 150 people waiting to check in and two people trying to manage it.</p>
+        <p>The actual problem wasn't the missing volunteer. The problem was I had assigned tasks without cross-training anyone. Every person knew their job and only their job. When one person disappeared, that job disappeared with them.</p>
+        <p>After that I ran one briefing session before every event where every volunteer understood every role. Not in detail &mdash; just enough that if someone didn't show, someone else could step in for the first 20 minutes until we sorted it out. It added an hour of prep. It saved us multiple times.</p>
+        <p>In PM terms: single points of failure are risks. You don't have to eliminate them. You just have to know where they are and have a plan.</p>
+
+        <h2>The thing nobody tells you about stakeholder management</h2>
+        <p>Running GDSC events meant dealing with the university administration, the GDSC regional leads, the speakers, the sponsors, and the attendees. Five different groups with five different definitions of success.</p>
+        <p>I learned that the biggest source of conflict wasn't disagreement &mdash; it was assumption. Admin assumed the event would end by 5pm because "events end by 5pm." I assumed that was fine because nobody told me otherwise. At 6pm someone came to lock up the hall.</p>
+        <p>Now I ask the stupid questions. What time does the room need to be empty? Who needs to approve the agenda? What does success look like to you specifically? These feel obvious in retrospect. Before you've had the hall-locking experience, they don't feel necessary.</p>
+
+        <h2>What I actually took away</h2>
+        <p>I didn't run perfect events. The third one almost fell apart. The fourth one was chaos for the first 30 minutes. But each one was better than the last because I was actually learning from what went wrong instead of just hoping the next one would be smoother.</p>
+        <p>That habit &mdash; running a real retrospective, writing down what broke and what to do differently, actually doing those things next time &mdash; is the whole game. In events, in sprints, in projects. It's not complicated. It's just not comfortable, because it means admitting what didn't work.</p>
+        <p>The course teaches you the framework. The events taught me why the framework exists.</p>
       </div>
     `
   };
